@@ -17,7 +17,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
   }
 
   function bookExistsOnCart() {
-    // return cart.find(book => book.id === +id) BREAKS BOOK PAGE
+    return cart.find(book => book.id === +id) 
   }
 
   return (
@@ -60,7 +60,9 @@ const BookInfo = ({ books, addToCart, cart }) => {
                   saepe omnis ex inventore reprehenderit!
                 </p>
                 {bookExistsOnCart() ? (
-                  <button className="btn">Checkout</button>
+                 <Link to="/cart" className="book__link">
+                 <button className="btn">Checkout</button>
+                 </Link>
                 ) : (
                   <button className="btn" onClick={() => addBookToCart(book)}>
                     Add to Cart
